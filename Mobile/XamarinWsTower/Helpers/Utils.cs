@@ -27,7 +27,7 @@ namespace XamarinWsTower.Helpers
                 if (client == null)
                 {
                     client = new HttpClient(); 
-                    client.BaseAddress = new Uri("http://192.168.0.105:5000/api/");
+                    client.BaseAddress = new Uri("http://localhost:5000/api/");
                 }
                 return client;
             }
