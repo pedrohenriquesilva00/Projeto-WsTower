@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.SplashView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Splash"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+
+                <lottie:AnimationView
+                    Animation="logo.json"
+                    AutoPlay="True"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Loop="true" />
+
+                <Label
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Campeonato mundial FIFA 2020" />
+            </StackLayout>
+
+            <StackLayout
+                Padding="10"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal"
+                Spacing="100">
+
+                <!--  Comentado essa parte para evitar redundancia.  -->
+                <!--<StackLayout Orientation="Vertical">
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Realização" />
+
+                    <Image
+                        HorizontalOptions="Center"
+                        Source="fifa_logo.png"
+                        WidthRequest="100" />
+                </StackLayout>-->
+
+                <StackLayout Orientation="Vertical">
+
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Apoio" />
+
+                    <Image Source="ws_towers.png" WidthRequest="100" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

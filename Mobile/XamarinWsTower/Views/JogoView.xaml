@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.JogoView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    Title="{Binding Data, StringFormat='Detalhes - {0:dd/MM/yyyy}'}"
+    mc:Ignorable="d">
+    <ScrollView>
+
+        <!--  ! Bandeiras  -->
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}" Spacing="0">
+            <Grid
+                Padding="10"
+                BackgroundColor="{DynamicResource BackgroundThemeColor}"
+                HeightRequest="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+
+                <Image
+                    x:Name="ImgCasa"
+                    Grid.Column="0"
+                    Aspect="AspectFill"
+                    Source="{Binding SelecaoCasaNavigation.ImgBandeira}" />
+
+
+                <Image
+                    x:Name="ImgVisitante"
+                    Grid.Column="1"
+                    Aspect="AspectFill"
+                    Source="{Binding SelecaoVisitanteNavigation.ImgBandeira}" />
+            </Grid>
+
+            <!--  ! Informações  -->
+            <Grid Padding="10" BackgroundColor="{DynamicResource BackgroundThemeColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--  Lado Casa  -->
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="Large"
+                        HorizontalTextAlignment="End"
+                        Text="{Binding SelecaoCasaNavigation.Nome}"
+                        TextColor="{DynamicResource TextThemeColor}"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        FontSize="Large"
+                        HorizontalOptions="EndAndExpand"
+                        Text="{Binding PlacarCasa}"
+                        TextColor="{DynamicResource TextThemeColor}"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="x"
+                    TextColor="{DynamicResource TextThemeColor}"
+                    VerticalTextAlignment="Center" />
+                <!--  Lado visitante  -->
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="Large"
+                        HorizontalOptions="StartAndExpand"
+                        Text="{Binding PlacarVisitante}"
+                        TextColor="{DynamicResource TextThemeColor}"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        FontSize="Large"
+                        Text="{Binding SelecaoVisitanteNavigation.Nome}"
+                        TextColor="{DynamicResource TextThemeColor}"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <!--  Info Estádio  -->
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.ColumnSpan="3"
+                    Orientation="Horizontal">
+                    <Label
+                        FontSize="Medium"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Estadio, StringFormat='Estádio {0:Estadio}'}"
+                        TextColor="{DynamicResource TextThemeColor}"
+                        VerticalTextAlignment="Center" />
+
+                </StackLayout>
+
+            </Grid>
+
+            <!--
+                Grid usado para fazer um "layout absoluto"
+                para colocar conteúdo por cima da imagem.
+            -->
+            <Grid HeightRequest="500">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <!--  Imagem de fundo do  campo de futebol.  -->
+                <Image Aspect="AspectFill" Source="soccer_stadium_10blur" />
+
+                <!--
+                    Card com a lista dos jogadores, fica
+                    emcima da imagem.
+                -->
+                <xfmaterial:MaterialCard
+                    Margin="20"
+                    Padding="0"
+                    BackgroundColor="{DynamicResource LightBackgroundColor}"
+                    CornerRadius="5"
+                    Elevation="4"
+                    HasShadow="True">
+                    <StackLayout
+                        Margin="0"
+                        Padding="0"
+                        Spacing="0">
+
+                        <!--  ! Header de lista de jogadores  -->
+                        <Label
+                            Padding="10"
+                            BackgroundColor="{DynamicResource PrimaryColorDarker}"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            HorizontalTextAlignment="Center"
+                            Text="Lista de jogadores"
+                            TextColor="{DynamicResource TextThemeColor}"
+                            VerticalTextAlignment="Center" />
+
+                        <!--  ! Grid com duas listas  -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="1" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <ListView
+                                Grid.Column="0"
+                                HasUnevenRows="true"
+                                ItemsSource="{Binding SelecaoCasaNavigation.Jogador}"
+                                SeparatorColor="{DynamicResource SeparatorColor}"
+                                SeparatorVisibility="Default">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Height="50">
+                                            <Grid Margin="5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label
+                                                    Grid.Column="0"
+                                                    FontSize="Caption"
+                                                    Text="{Binding Nome}"
+                                                    TextColor="{DynamicResource PrimaryTextColor}"
+                                                    VerticalTextAlignment="Center" />
+
+                                                <Label
+                                                    Grid.Column="1"
+                                                    FontSize="Caption"
+                                                    Text="{Binding Posicao}"
+                                                    TextColor="{DynamicResource PrimaryTextColor}"
+                                                    VerticalTextAlignment="Center" />
+                                            </Grid>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <Image Grid.Column="1" BackgroundColor="Black" />
+
+                            <ListView
+                                Grid.Column="2"
+                                Margin="0,6,0,0"
+                                HasUnevenRows="true"
+                                ItemsSource="{Binding SelecaoVisitanteNavigation.Jogador}"
+                                SeparatorColor="{DynamicResource SeparatorColor}"
+                                SeparatorVisibility="Default">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell Height="50">
+                                            <Grid Margin="5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label
+                                                    Grid.Column="0"
+                                                    FontSize="Caption"
+                                                    Text="{Binding Nome}"
+                                                    TextColor="{DynamicResource PrimaryTextColor}"
+                                                    VerticalTextAlignment="Center" />
+
+                                                <Label
+                                                    Grid.Column="1"
+                                                    FontSize="Caption"
+                                                    Text="{Binding Posicao}"
+                                                    TextColor="{DynamicResource PrimaryTextColor}"
+                                                    VerticalTextAlignment="Center" />
+                                            </Grid>
+
+
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+                    </StackLayout>
+                </xfmaterial:MaterialCard>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

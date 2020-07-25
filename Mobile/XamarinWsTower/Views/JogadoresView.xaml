@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.JogadoresView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+            <Grid
+                Margin="5"
+                ColumnSpacing="0"
+                HeightRequest="60"
+                RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="22" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton
+                    Grid.Column="0"
+                    Margin="0"
+                    BackgroundColor="#00000000"
+                    Clicked="Buscar_Clicked"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{DynamicResource SearchIcon}"
+                    VerticalOptions="Center" />
+
+                <!--  Cor do Placeholder age de maneira estranha, mas agora funciona.  -->
+                <material:MaterialEntry
+                    x:Name="Searchbar"
+                    Grid.Column="1"
+                    FocusedBorderColor="{DynamicResource PrimaryColor}"
+                    HorizontalOptions="FillAndExpand"
+                    Placeholder="Buscar por nome..."
+                    PlaceholderColor="#818181"
+                    Style="{DynamicResource EntrySearch}"
+                    TextChanged="Searchbar_TextChanged"
+                    Type="Lined" />
+
+                <ImageButton
+                    Grid.Column="2"
+                    Margin="0"
+                    BackgroundColor="#00000000"
+                    Clicked="ResetarBusca_Clicked"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{DynamicResource RemoveIcon}"
+                    VerticalOptions="Center" />
+
+                <ImageButton
+                    Grid.Column="3"
+                    Margin="0"
+                    BackgroundColor="#00000000"
+                    Clicked="ImageButton_Clicked"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{DynamicResource SortIcon}"
+                    VerticalOptions="Center" />
+            </Grid>
+
+
+            <ListView
+                Margin="0,6,0,0"
+                HasUnevenRows="true"
+                ItemsSource="{Binding jogadores}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <xfmaterial:MaterialCard
+                                Margin="8,0,8,8"
+                                Padding="10"
+                                BackgroundColor="{DynamicResource LightBackgroundColor}"
+                                Clicked="Jogador_Clicked"
+                                CornerRadius="5"
+                                Elevation="4"
+                                IsClickable="True">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="40" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        Source="{Binding Img}"
+                                        HeightRequest="100"
+                                        Style="{DynamicResource ImgOpacity}" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Margin="10,25,0,0"
+                                        Text="{Binding Nome}"
+                                        TextColor="{DynamicResource PrimaryTextColor}" />
+                                    <Label
+                                        Grid.Column="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding Qtdegols}"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        Grid.Column="3"
+                                        FontAttributes="Italic"
+                                        FontSize="Caption"
+                                        Text="Gols"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                </Grid>
+                            </xfmaterial:MaterialCard>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

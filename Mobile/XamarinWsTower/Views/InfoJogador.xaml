@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.InfoJogador"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    Title="{Binding Nome}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}" Spacing="0">
+            <StackLayout Padding="10" Orientation="Horizontal">
+                <Image
+                    Source="{Binding Selecao.ImgBandeira}"
+                    VerticalOptions="Center"
+                    WidthRequest="80" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="{Binding Selecao.Nome}"
+                    TextColor="{DynamicResource PrimaryTextColor}"
+                    VerticalTextAlignment="End" />
+            </StackLayout>
+
+            <!--<Image Source="{Binding Img}" />-->
+            <Frame
+                CornerRadius="10"
+                Margin="0,0,0,20"
+                Padding="0"
+                HorizontalOptions="Center"
+                WidthRequest="150"
+                HeightRequest="100">
+                <Image
+                    Source="{Binding Img}"
+                    Aspect="AspectFill"/>
+          </Frame>
+
+            <xfmaterial:MaterialCard
+                BackgroundColor="{DynamicResource LightBackgroundColor}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label
+                        FontSize="Large"
+                        Text="Detalhes sobre o jogador"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Label Text="{Binding Posicao, StringFormat='Joga como {0:Posicao}'}" TextColor="{DynamicResource PrimaryTextColor}" />
+
+                    <Label Text="{Binding Nascimento, StringFormat='Nascido em {0:dd/MM/yyyy}'}" TextColor="{DynamicResource PrimaryTextColor}" />
+
+                    <!--<Label Text="{Binding Idade, StringFormat='Idade: {Idade}'}"></Label>-->
+
+                    <Label Text="{Binding NumeroCamisa, StringFormat='Camisa {0}'}" TextColor="{DynamicResource PrimaryTextColor}" />
+
+                    <Label Text="{Binding Informacoes, StringFormat='Descrição: {0:Informacoes}'}" TextColor="{DynamicResource PrimaryTextColor}" />
+                </StackLayout>
+            </xfmaterial:MaterialCard>
+
+            <Grid
+                Margin="0"
+                Padding="5"
+                BackgroundColor="{DynamicResource PrimaryColorDarker}"
+                HeightRequest="50"
+                VerticalOptions="EndAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="baseline_sports_soccer_white_18dp.png"
+                    WidthRequest="22" />
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="Orange"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="22" />
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    BackgroundColor="Red"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="22" />
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="baseline_outlined_whistle_white_128dp"
+                    WidthRequest="22" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Qtdegols}"
+                    TextColor="{DynamicResource TextThemeColor}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding QtdecartoesVermelho}"
+                    TextColor="{DynamicResource TextThemeColor}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding QtdecartoesAmarelo}"
+                    TextColor="{DynamicResource TextThemeColor}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Qtdefaltas}"
+                    TextColor="{DynamicResource TextThemeColor}" />
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="XamarinWsTower.Themes.LightTheme"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <!--  ! Cores  -->
+    <!--  Preto 87%  -->
+    <Color x:Key="PrimaryTextColor">#DE000000</Color>
+    <!--  Preto 54%  -->
+    <Color x:Key="SecondaryTextColor">#8A000000</Color>
+    <!--  Branco, usa para todos backgrounds do app.  -->
+    <Color x:Key="PageBackgroundColor">WhiteSmoke</Color>
+    <!--  Branco claro, usara para o background de containers destacados.  -->
+    <Color x:Key="LightBackgroundColor">White</Color>
+    <!--  Azul  -->
+    <Color x:Key="PrimaryColor">#048abf</Color>
+    <!--  Azul dessaturado  -->
+    <Color x:Key="PrimaryColorDarker">#3F839E</Color>
+    <!--  Verde leve  -->
+    <Color x:Key="SecondaryColor">#8BC34A</Color>
+    <!--  NavBar e MasterDetail Color  -->
+    <Color x:Key="BackgroundThemeColor">#048abf</Color>
+    <!--  Cor de text do tema, usado na NavBar  -->
+    <Color x:Key="TextThemeColor">WhiteSmoke</Color>
+    <!--  Cor do separador  -->
+    <Color x:Key="SeparatorColor">Gray</Color>
+
+    <!--  ! Propriedades  -->
+    <!--  Entry de DataPicker  -->
+    <Style x:Key="DatePicker" TargetType="DatePicker">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+    <Style x:Key="EntrySearch" TargetType="material:MaterialEntry">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="BorderColor" Value="{DynamicResource SeparatorColor}" />
+    </Style>
+
+    <!--  Estilo da imagem; modifica a opacidade para evitar muito brilho.  -->
+    <Style x:Key="ImgOpacityStyle" TargetType="Image">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <!--  ! Navbar  -->
+    <Style TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="{DynamicResource BackgroundThemeColor}" />
+        <Setter Property="BarTextColor" Value="WhiteSmoke" />
+    </Style>
+
+    <!--  ! Ícones  -->
+    <Style x:Key="RemoveIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_close_black_48dp" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="SearchIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_search_black_48dp" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="HouseIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_house_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="MinhaContaIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_person_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="SobreIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_description_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="ConfiguracoesIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_settings_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="TemaEscuroIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_settings_brightness_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="LogoffIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_exit_to_app_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="EmailIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_email_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="SenhaIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_lock_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="EditIcon" TargetType="Image">
+        <Setter Property="Source" Value="baseline_edit_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="AscIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_arrowup_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="DescIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_arrowdown_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="SortIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_sort_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="SoccerBallIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_sports_soccer_black_18dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="FlagIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_outlined_flag_black_18dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="PlayerIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_outlined_player_black_256dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style x:Key="NewsIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_outline_newspaper_black_48dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style x:Key="WhistleIcon" TargetType="ImageButton">
+        <Setter Property="Source" Value="baseline_outlined_whistle_black_128dp.png" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="XamarinWsTower.Views.MainView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:XamarinWsTower.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Menu Principal"
+    BarBackgroundColor="{DynamicResource BackgroundThemeColor}"
+    BarTextColor="{DynamicResource TextThemeColor}"
+    SelectedTabColor="White"
+    mc:Ignorable="d">
+
+    <!--  Pages can be added as references or inline  -->
+    <local:JogosView IconImageSource="baseline_sports_soccer_white_18dp.png" />
+    <local:SelecoesView IconImageSource="baseline_outlined_flag_white_18dp" />
+    <local:JogadoresView IconImageSource="baseline_outlined_player_white_256dp" />
+    <local:NoticiasView IconImageSource="baseline_outline_newspaper_white_48dp" />
+</TabbedPage>

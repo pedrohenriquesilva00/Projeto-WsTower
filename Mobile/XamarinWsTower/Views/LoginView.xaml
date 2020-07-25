@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    mc:Ignorable="d">
+    <ScrollView>
+        <StackLayout>
+            <Image
+                x:Name="Logo"
+                Margin="0,60,0,30"
+                Source="app_logo.png"
+                WidthRequest="150" />
+
+            <StackLayout Orientation="Horizontal">
+                <Image
+                    Margin="30,30,0,0"
+                    Source="baseline_person_black_48dp.png"
+                    WidthRequest="25" />
+                <xfmaterial:MaterialTextField
+                    x:Name="EntryUsuario"
+                    Margin="0,20,40,0"
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="#00000000"
+                    Focused="ComeçouPreencher"
+                    HorizontalOptions="FillAndExpand"
+                    InputType="Email"
+                    Placeholder="Usuário ou email"
+                    Text="{Binding usuario}"
+                    TintColor="#048ABF"
+                    Unfocused="ParouPreencher" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Image
+                    Margin="30,15,0,0"
+                    Source="baseline_lock_black_48dp.png"
+                    WidthRequest="25" />
+                <xfmaterial:MaterialTextField
+                    x:Name="EntrySenha"
+                    Margin="0,10,40,0"
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="#00000000"
+                    Focused="ComeçouPreencher"
+                    HorizontalOptions="FillAndExpand"
+                    InputType="Password"
+                    Placeholder="Senha"
+                    PlaceholderColor="Gray"
+                    Text="{Binding senha}"
+                    TintColor="#048ABF"
+                    Unfocused="ParouPreencher" />
+            </StackLayout>
+
+            <xfmaterial:MaterialButton
+                x:Name="btnLogin"
+                BackgroundColor="#048ABF"
+                Command="{Binding btnLoginCommand}"
+                CornerRadius="10"
+                HeightRequest="50"
+                HorizontalOptions="CenterAndExpand"
+                IsEnabled="False"
+                Text="Login"
+                TextColor="White"
+                WidthRequest="160" />
+
+            <xfmaterial:MaterialButton
+                ButtonType="Outlined"
+                Clicked="CadastrarButton_Clicked"
+                CornerRadius="10"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Text="CADASTRE-SE"
+                TextColor="#048ABF"
+                WidthRequest="160" />
+            <StackLayout
+                x:Name="EmptySpace"
+                HeightRequest="0"
+                VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

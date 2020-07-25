@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage
+    x:Class="XamarinWsTower.Views.Menu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Menu"
+    mc:Ignorable="d">
+
+    <MasterDetailPage.Master>
+        <ContentPage
+            Title="Menu"
+            Padding="0"
+            BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <ContentPage.Content>
+                <StackLayout x:Name="MasterDetail">
+                    <StackLayout BackgroundColor="{DynamicResource BackgroundThemeColor}" HeightRequest="230">
+                        <Image
+                            Margin="10,30,0,0"
+                            HeightRequest="50"
+                            HorizontalOptions="Start"
+                            Source="app_icon"
+                            VerticalOptions="EndAndExpand" />
+                        <Label
+                            Padding="10"
+                            FontSize="Large"
+                            Text="Campeonato FIFA"
+                            TextColor="{DynamicResource TextThemeColor}"
+                            VerticalOptions="EndAndExpand"
+                            VerticalTextAlignment="End" />
+                    </StackLayout>
+
+                    <TableView Intent="Menu">
+                        <TableSection>
+                            <ViewCell Tapped="GoInicio">
+                                <StackLayout Padding="15,10" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource HouseIcon}" />
+                                    <Label
+                                        Margin="10,0,0,0"
+                                        Text="INÍCIO"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="GoMinhaConta">
+                                <StackLayout Padding="15,10" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource MinhaContaIcon}" />
+                                    <Label
+                                        Margin="10,0,0,0"
+                                        Text="MINHA CONTA"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="GoSobre">
+                                <StackLayout Padding="15,10" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource SobreIcon}" />
+                                    <Label
+                                        Margin="10,0,0,0"
+                                        Text="SOBRE NÓS"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell>
+                                <StackLayout Padding="15,10" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource TemaEscuroIcon}" />
+                                    <Label
+                                        Margin="10,0,0,0"
+                                        HorizontalOptions="Start"
+                                        HorizontalTextAlignment="Start"
+                                        Text="TEMA ESCURO"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                    <Switch
+                                        x:Name="switchDarkTheme"
+                                        HorizontalOptions="EndAndExpand"
+                                        IsEnabled="True"
+                                        Toggled="TemaEscuro_Toggled"
+                                        VerticalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="Logoff">
+                                <StackLayout Padding="15,10" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource LogoffIcon}" />
+                                    <Label
+                                        Margin="10,0,0,0"
+                                        Text="LOGOFF"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableView>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>

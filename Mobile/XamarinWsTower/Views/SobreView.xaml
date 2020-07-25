@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.SobreView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Sobre"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+        <StackLayout Padding="15" BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <Image
+                Margin="20"
+                Source="app_logo.png"
+                VerticalOptions="Center"
+                WidthRequest="170" />
+            <Label
+                FontSize="20"
+                Text="REALIZAÇÃO"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+
+            <Label
+                FontSize="17"
+                Text="FIFA - Federação Internacional de Futebol"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label
+                    FontSize="13"
+                    Text="SEDE: Zurique, Suíça"
+                    TextColor="{DynamicResource PrimaryTextColor}" />
+                <Image
+                    HorizontalOptions="EndAndExpand"
+                    Source="fifalogo.png"
+                    WidthRequest="100" />
+            </StackLayout>
+
+            <Label
+                FontSize="13"
+                Text="TIPO: Desportiva"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+            <Label
+                FontSize="13"
+                Text="WEBSITE: www.fifa.com"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+
+            <Label
+                FontSize="20"
+                Text="APOIO"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+
+            <Label
+                FontSize="17"
+                Text="WS TOWERS"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label
+                    FontSize="13"
+                    Text="SEDE: São Paulo, Brasil"
+                    TextColor="{DynamicResource PrimaryTextColor}" />
+            </StackLayout>
+
+            <Label
+                FontSize="13"
+                Text="TIPO: Engenharia"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+            <Label
+                FontSize="13"
+                Text="WEBSITE: worldskills.org"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+            <Label
+                HorizontalOptions="Center"
+                Text="@ 2020 Todos os direitos reservados"
+                TextColor="{DynamicResource PrimaryColor}"
+                VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

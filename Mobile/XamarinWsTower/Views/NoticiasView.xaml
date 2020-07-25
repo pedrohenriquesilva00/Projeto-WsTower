@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.NoticiasView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <ListView
+                x:Name="jogosList"
+                Margin="0,6,0,0"
+                HasUnevenRows="true"
+                ItemsSource="{Binding noticias}"
+                SeparatorColor="#00000000">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="180">
+                            <xfmaterial:MaterialCard
+                                Margin="8,0,8,8"
+                                Padding="10"
+                                BackgroundColor="{DynamicResource LightBackgroundColor}"
+                                Clicked="NewsCard_Clicked"
+                                CornerRadius="5"
+                                Elevation="4"
+                                IsClickable="True">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="20" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.RowSpan="3"
+                                        Grid.Column="0"
+                                        Aspect="AspectFill"
+                                        HeightRequest="70"
+                                        Source="{Binding urlToImage}"
+                                        Style="{DynamicResource ImgOpacity}" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontSize="Caption"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding title}"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Start" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontSize="Micro"
+                                        HorizontalTextAlignment="Start"
+                                        Text="{Binding description}"
+                                        TextColor="{DynamicResource SecondaryTextColor}"
+                                        VerticalOptions="Start"
+                                        VerticalTextAlignment="Start" />
+                                    <StackLayout
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            FontSize="Micro"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding publishedAt, StringFormat='{0:dd/MM/yyyy} |'}"
+                                            TextColor="{DynamicResource SecondaryTextColor}"
+                                            VerticalOptions="Start"
+                                            VerticalTextAlignment="Start" />
+                                        <Label
+                                            FontSize="Micro"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding source.name}"
+                                            TextColor="{DynamicResource SecondaryTextColor}"
+                                            VerticalOptions="Start"
+                                            VerticalTextAlignment="Start" />
+                                    </StackLayout>
+
+
+                                </Grid>
+                            </xfmaterial:MaterialCard>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

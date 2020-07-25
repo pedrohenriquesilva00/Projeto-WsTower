@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.JogosView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:material="clr-namespace:Plugin.MaterialDesignControls;assembly=Plugin.MaterialDesignControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    mc:Ignorable="d">
+
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+            <Grid Margin="5" HeightRequest="60">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="22" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="22" />
+                </Grid.ColumnDefinitions>
+
+                <ImageButton
+                    Grid.Column="0"
+                    Margin="0"
+                    BackgroundColor="#00000000"
+                    Clicked="Buscar_Clicked"
+                    Style="{DynamicResource SearchIcon}"
+                    VerticalOptions="Center"
+                    WidthRequest="22" />
+                <!--  Cor do Placeholder age de maneira estranha, mas agora funciona.  -->
+                <DatePicker
+                    x:Name="DateEntry"
+                    Grid.Column="1"
+                    DateSelected="DateEntry_DateSelected"
+                    HorizontalOptions="FillAndExpand"
+                    Style="{DynamicResource DatePicker}"
+                    WidthRequest="270" />
+
+                <ImageButton
+                    Grid.Column="2"
+                    Margin="0"
+                    BackgroundColor="#00000000"
+                    Clicked="ResetarBusca_Clicked"
+                    HorizontalOptions="EndAndExpand"
+                    Style="{DynamicResource RemoveIcon}"
+                    VerticalOptions="Center"
+                    WidthRequest="22" />
+            </Grid>
+
+            <ListView
+                x:Name="jogosList"
+                HasUnevenRows="true"
+                ItemsSource="{Binding jogos}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <xfmaterial:MaterialCard
+                                Margin="8,0,8,8"
+                                Padding="10"
+                                BackgroundColor="{DynamicResource LightBackgroundColor}"
+                                Clicked="JogoCard_Clicked"
+                                CornerRadius="5"
+                                Elevation="4"
+                                HasShadow="True"
+                                IsClickable="True">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="16" />
+                                        <RowDefinition />
+                                        <RowDefinition Height="20" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="5"
+                                        FontSize="Caption"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Data, StringFormat='Jogado em {0:dd/MM/yyyy}'}"
+                                        TextColor="{DynamicResource SecondaryTextColor}" />
+
+                                    <Image
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Source="{Binding SelecaoCasaNavigation.ImgBandeira}"
+                                        Style="{DynamicResource ImgOpacity}"
+                                        WidthRequest="150" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding SelecaoCasaNavigation.Nome}"
+                                        TextColor="{DynamicResource PrimaryTextColor}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="1"
+                                        HorizontalOptions="End"
+                                        Text="{Binding PlacarCasa}"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="End" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        Text="x"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="End" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="3"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding PlacarVisitante}"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="End" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="4"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding SelecaoVisitanteNavigation.Nome}"
+                                        TextColor="{DynamicResource PrimaryTextColor}" />
+                                    <Image
+                                        Grid.Row="1"
+                                        Grid.Column="4"
+                                        Source="{Binding SelecaoVisitanteNavigation.ImgBandeira}"
+                                        Style="{DynamicResource ImgOpacity}"
+                                        WidthRequest="150" />
+                                </Grid>
+                            </xfmaterial:MaterialCard>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

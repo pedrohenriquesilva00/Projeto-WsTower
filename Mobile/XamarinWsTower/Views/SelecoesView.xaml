@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamarinWsTower.Views.SelecoesView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xfmaterial="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <ListView
+                Margin="0,6,0,0"
+                HasUnevenRows="true"
+                ItemSelected="OnListViewItemSelected"
+                ItemTapped="OnListViewItemTapped"
+                ItemsSource="{Binding Selecoes}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <xfmaterial:MaterialCard
+                                Margin="8,0,8,8"
+                                Padding="10"
+                                BackgroundColor="{DynamicResource LightBackgroundColor}"
+                                CornerRadius="5"
+                                Elevation="4"
+                                IsClickable="True">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="40" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image
+                                        Grid.Column="0"
+                                        HeightRequest="70"
+                                        Source="{Binding ImgBandeira}"
+                                        Style="{DynamicResource ImgOpacity}"
+                                        WidthRequest="90" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Margin="10,25,0,0"
+                                        Text="{Binding Nome}"
+                                        TextColor="{DynamicResource PrimaryTextColor}" />
+                                    <Label
+                                        Grid.Column="2"
+                                        HorizontalOptions="CenterAndExpand"
+                                        Text="{Binding TotalPontos}"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+                                    <Label
+                                        Grid.Column="3"
+                                        FontAttributes="Italic"
+                                        FontSize="Caption"
+                                        Text="pontos"
+                                        TextColor="{DynamicResource PrimaryTextColor}"
+                                        VerticalTextAlignment="Center" />
+
+                                </Grid>
+                            </xfmaterial:MaterialCard>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
