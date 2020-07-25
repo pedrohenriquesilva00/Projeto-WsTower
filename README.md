@@ -15,3 +15,24 @@ e em client.BaseAddress = new Uri("http://localhost:5000/api/"); coloque seu end
 Mude apenas o localhost.
 
 Pronto, agora você pode rodar o projeto na sua máquina.
+
+nstall API
+# Clone this repository
+$ git clone https://github.com/DanielObara/NLW-1.0
+
+# Go into the repository
+$ cd NLW-1.0/backend
+
+# Install dependencies
+$ yarn install
+
+# Run Migrates
+$ yarn knex:migrate
+
+# Run Seeds
+$ yarn knex:seed
+
+# Start server
+$ yarn dev
+
+# running on port 3333
