@@ -4,7 +4,7 @@
 Rode o Script da pasta Database para criar o Banco, as tabelas e informações dela.
 
 # API:
-Abra a API e em Properties > launchSettings.json
+Abra a API e na pasta Properties > launchSettings.json
 mude o "applicationUrl" para seu endereço de IP local.
 
 Caso não lembre seu IP ou não saiba onde encontrar,
